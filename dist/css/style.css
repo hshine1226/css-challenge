@@ -23,6 +23,7 @@ body .title .title__text {
   color: #ffffff;
   font-size: 85px;
   text-align: center;
+  font-weight: 600;
 }
 
 .main {
