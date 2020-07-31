@@ -1,0 +1,191 @@
+$orange: #ff7300;
+$red: #ff0400;
+$magenta: #ff00ff;
+$blue: #1a00ff;
+$black: #000000;
+$white: #ffffff;
+
+html {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-weight: 500;
+}
+.main {
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  height: 100vh;
+  .orange-box {
+    display: grid;
+    grid-template-rows: auto;
+    background-color: $orange;
+    color: $red;
+    height: 100%;
+
+    .row {
+      display: grid;
+      grid-template-columns: 40px 4fr 2fr;
+
+      min-height: 120px;
+      border: 1px solid $red;
+
+      &:hover {
+        color: $white;
+        border: 1px solid $white;
+        .column:nth-child(1) {
+          border-left: 1px solid $white;
+        }
+        .column:nth-child(2) {
+          border-right: 1px solid $white;
+        }
+        .column:nth-child(3) {
+          .box:nth-child(2) {
+            border-top: 1px solid $white;
+            button {
+              background-color: $white;
+            }
+          }
+        }
+      }
+
+      .column:nth-child(1) {
+        writing-mode: vertical-lr;
+        transform: rotateZ(180deg);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-left: 1px solid $red;
+      }
+      .column:nth-child(2) {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        font-size: 80px;
+        font-weight: 500;
+        border-right: 1px solid $red;
+        padding-left: 15px;
+      }
+      .column:nth-child(3) {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        .box {
+          width: 100%;
+          height: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          &:nth-child(1) {
+            border-bottom: 1px solid $red;
+            text-align: center;
+          }
+          &:nth-child(2) {
+            button {
+              width: 90%;
+              padding: 10px 20px;
+              border-radius: 15px;
+              background-color: $red;
+              color: $orange;
+              border: none;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .red-box {
+    display: grid;
+    grid-template-columns: 50px 1fr;
+
+    .side-bar {
+      display: grid;
+      grid-template-rows: 1fr 1fr;
+      position: relative;
+      .row {
+        display: flex;
+        justify-content: center;
+
+        background-color: $magenta;
+        padding-top: 12px;
+        span {
+          writing-mode: vertical-rl;
+          font-size: 24px;
+          display: flex;
+          align-items: center;
+        }
+
+        &:nth-child(2) {
+          align-items: flex-end;
+          background-color: $blue;
+          padding-bottom: 12px;
+          span {
+            transform: rotateZ(180deg);
+            width: 100%;
+          }
+        }
+      }
+
+      .badge {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 35px;
+      }
+    }
+
+    .wrapper {
+      display: flex;
+      flex-direction: column;
+      background-color: $red;
+      padding: 12px 15px;
+      .header {
+        display: flex;
+        justify-content: space-between;
+        padding-bottom: 12px;
+        .column {
+          display: flex;
+          align-items: center;
+          cursor: pointer;
+          &:not(:last-child) {
+            margin-right: 8px;
+          }
+          &:hover {
+            .circle {
+              background-color: $black;
+            }
+          }
+          .circle {
+            width: 20px;
+            height: 20px;
+            border: 1px solid $black;
+            border-radius: 100%;
+            margin-right: 5px;
+          }
+        }
+      }
+
+      .cards {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        height: 100%;
+        .card {
+          padding: 12px 0;
+          border-top: 1px solid $black;
+          border-bottom: 1px solid $black;
+          &:nth-child(odd) {
+            margin-right: 12px;
+          }
+
+          .title {
+            font-size: 22px;
+          }
+          .content {
+          }
+        }
+      }
+    }
+  }
+}
